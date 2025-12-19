@@ -6,6 +6,7 @@ import type { Movie } from '../../types/movie.types';
 import { Header } from '../../components/layout/Header/Header';
 import { Container } from '../../components/layout/Container/Container';
 import { Skeleton } from '../../components/common/Skeleton/Skeleton';
+import { ScrollToTopButton } from '../../components/common/ScrollToTopButton/ScrollToTopButton';
 
 export const MovieDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -223,6 +224,7 @@ export const MovieDetailPage: React.FC = () => {
           </aside>
         </div>
       </Container>
+      <ScrollToTopButton />
     </motion.div>
   );
 };

@@ -9,6 +9,7 @@ import { SearchBar } from '../../components/features/SearchBar/SearchBar';
 import { FilterTabs } from '../../components/features/FilterTabs/FilterTabs';
 import { MovieModal } from '../../components/features/MovieModal/MovieModal';
 import { Skeleton } from '../../components/common/Skeleton/Skeleton';
+import { ScrollToTopButton } from '../../components/common/ScrollToTopButton/ScrollToTopButton';
 import { ITEMS_PER_PAGE, LOAD_MORE_ITEMS } from '../../utils/constants';
 
 export const HomePage: React.FC = () => {
@@ -179,6 +180,7 @@ export const HomePage: React.FC = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+      <ScrollToTopButton />
     </div>
   );
 };
