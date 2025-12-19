@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Светлая тема */
+    --background: 250 250 250;        /* #FAFAFA - основной фон */
+    --surface: 255 255 255;           /* #FFFFFF - карточки */
+    --surface-hover: 248 248 248;     /* #F8F8F8 - hover состояние */
+    --primary: 99 102 241;            /* #6366F1 - акцентный (индиго) */
+    --primary-hover: 79 70 229;       /* #4F46E5 */
+    --text-primary: 17 24 39;         /* #111827 - основной текст */
+    --text-secondary: 107 114 128;    /* #6B7280 - вторичный текст */
+    --border: 229 231 235;            /* #E5E7EB */
+    --rating-bg: 254 243 199;         /* #FEF3C7 - фон рейтинга */
+    --rating-text: 146 64 14;         /* #92400E */
+  }
+
+  .dark {
+    /* Темная тема */
+    --background: 15 23 42;           /* #0F172A - основной фон */
+    --surface: 30 41 59;              /* #1E293B - карточки */
+    --surface-hover: 51 65 85;        /* #334155 - hover состояние */
+    --primary: 129 140 248;           /* #818CF8 - акцентный (индиго) */
+    --primary-hover: 165 180 252;     /* #A5B4FC */
+    --text-primary: 248 250 252;      /* #F8FAFC - основной текст */
+    --text-secondary: 148 163 184;    /* #94A3B8 - вторичный текст */
+    --border: 51 65 85;               /* #334155 */
+    --rating-bg: 30 58 138;           /* #1E3A8A - фон рейтинга */
+    --rating-text: 191 219 254;       /* #BFDBFE */
+  }
+}
+
+@layer components {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
