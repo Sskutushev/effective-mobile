@@ -23,7 +23,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
         }
       }}
     >
-      {/* Постер */}
       <div className="aspect-[2/3] overflow-hidden">
         <img
           src={movie.poster}
@@ -33,17 +32,18 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
         />
       </div>
 
-      {/* Рейтинг */}
       <div className="absolute left-3 top-3 rounded-lg bg-rating-bg px-2.5 py-1 shadow-lg">
         <span className="text-sm font-semibold text-rating-text">
           {movie.rating}
         </span>
       </div>
 
-      {/* Hover overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <h3 className="text-lg font-bold text-white">{movie.title}</h3>
+          {movie.originalTitle && (
+            <p className="text-xs text-gray-400">{movie.originalTitle}</p>
+          )}
           <p className="text-sm text-gray-300">
             {movie.year} • {movie.genre.join(', ')}
           </p>

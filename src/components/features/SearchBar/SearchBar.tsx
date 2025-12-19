@@ -21,15 +21,17 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Поиск фильмов..."
+        placeholder="Искать фильмы..."
         className="w-full rounded-full border-2 border-border bg-surface py-3 pl-12 pr-12 text-text-primary transition-all duration-200 placeholder:text-text-secondary focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
-        aria-label="Поиск фильмов"
+        aria-label="Искать фильмы"
+        data-testid="search-input"
       />
       {query && (
         <button
           onClick={() => setQuery('')}
           className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary transition-colors hover:text-text-primary"
           aria-label="Очистить"
+          data-testid="clear-button"
         >
           <X className="h-5 w-5" />
         </button>

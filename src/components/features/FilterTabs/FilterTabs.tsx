@@ -1,8 +1,8 @@
 import React from 'react';
 import { Film, Sparkles, Star, TrendingUp, Award } from 'lucide-react';
-import { cn } from '../../../utils/cn';
 import type { FilterCategory } from '../../../types/movie.types';
 import { FILTER_CATEGORIES } from '../../../utils/constants';
+import { cn } from '@utils/cn';
 
 interface FilterTabsProps {
   active: FilterCategory;
@@ -33,6 +33,7 @@ export const FilterTabs: React.FC<FilterTabsProps> = ({ active, onFilterChange }
                 : 'bg-surface text-text-secondary hover:bg-surface-hover hover:text-text-primary'
             )}
             aria-current={active === id ? 'page' : undefined}
+            data-testid={`filter-tab-${id}`}
           >
             <Icon className="h-4 w-4" />
             {label}

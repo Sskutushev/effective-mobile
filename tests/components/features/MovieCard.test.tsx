@@ -1,8 +1,8 @@
 import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MovieCard } from './MovieCard';
-import { Movie } from '../../../types/movie.types';
+import { MovieCard } from '@components/features/MovieCard/MovieCard';
+import { Movie } from '@types/movie.types';
 
 // Mock data for testing
 const mockMovie: Movie = {
@@ -28,8 +28,9 @@ describe('MovieCard', () => {
     
     expect(screen.getByText('Test Movie')).toBeInTheDocument();
     expect(screen.getByText('8.5')).toBeInTheDocument();
-    expect(screen.getByText('2024')).toBeInTheDocument();
-    expect(screen.getByText('Drama')).toBeInTheDocument();
+    // Check for year and genre in the same text node
+    expect(screen.getByText(/2024/)).toBeInTheDocument();
+    expect(screen.getByText(/Drama/)).toBeInTheDocument();
   });
 
   it('calls onClick when card is clicked', () => {
@@ -60,8 +61,24 @@ describe('MovieCard', () => {
 
     render(<MovieCard movie={movieWithMultipleGenres} onClick={mockClick} />);
     
-    expect(screen.getByText('Action')).toBeInTheDocument();
-    expect(screen.getByText('Adventure')).toBeInTheDocument();
-    expect(screen.getByText('Sci-Fi')).toBeInTheDocument();
+    expect(screen.getByText(/Action, Adventure, Sci-Fi/)).toBeInTheDocument();
+  });
+
+  it('calls onClick when Enter key is pressed', () => {
+    render(<MovieCard movie={mockMovie} onClick={mockClick} />);
+
+    const card = screen.getByRole('button');
+    fireEvent.keyDown(card, { key: 'Enter' });
+
+    expect(mockClick).toHaveBeenCalledWith(mockMovie);
+  });
+
+  it('calls onClick when Space key is pressed', () => {
+    render(<MovieCard movie={mockMovie} onClick={mockClick} />);
+
+    const card = screen.getByRole('button');
+    fireEvent.keyDown(card, { key: ' ' });
+
+    expect(mockClick).toHaveBeenCalledWith(mockMovie);
   });
 });

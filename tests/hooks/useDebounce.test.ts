@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { useDebounce } from './useDebounce';
+import { useDebounce } from '@hooks/useDebounce';
 
 describe('useDebounce', () => {
   it('should return initial value immediately', () => {

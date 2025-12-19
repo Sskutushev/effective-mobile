@@ -84,10 +84,12 @@ export const MovieDetailPage: React.FC = () => {
     >
       <Header />
 
-      {/* Hero секция */}
       <div
-        className="relative h-[60vh] bg-cover bg-center"
-        style={{ backgroundImage: `url(${movie.backdrop || movie.poster})` }}
+        className="relative h-[60vh] bg-cover"
+        style={{
+          backgroundImage: `url(${movie.backdrop || movie.poster})`,
+          backgroundPosition: movie.id === 3 ? 'center 20px' : 'center'
+        }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
@@ -123,10 +125,8 @@ export const MovieDetailPage: React.FC = () => {
         </Container>
       </div>
 
-      {/* Контент */}
       <Container className="py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Основная информация */}
           <div className="lg:col-span-2 space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-text-primary mb-4">
@@ -137,7 +137,6 @@ export const MovieDetailPage: React.FC = () => {
               </p>
             </section>
 
-            {/* Заглушки для дополнительных секций */}
             <section>
               <h2 className="text-2xl font-bold text-text-primary mb-4">
                 Актеры
@@ -157,7 +156,6 @@ export const MovieDetailPage: React.FC = () => {
             </section>
           </div>
 
-          {/* Боковая панель */}
           <aside className="space-y-6">
             <div className="rounded-xl bg-surface p-6 space-y-4">
               <div>

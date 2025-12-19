@@ -1,61 +1,67 @@
 # Movie Catalog
 
-Современное SPA-приложение каталога фильмов на React + TypeScript + Tailwind CSS
+A simple SPA for browsing movies.
 
-## 🚀 Технологии
+---
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS 3.4
-- React Router
-- Framer Motion
-- Vitest + React Testing Library
+### Stack
 
-## ✨ Возможности
+- **Framework**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router
+- **Animation**: Framer Motion
+- **Testing**: Vitest, React Testing Library
 
-- 🔍 Поиск с debounce
-- 🎭 Фильтрация по категориям
-- 🎨 Светлая и темная темы
-- 📱 Адаптивный дизайн
-- ♿ Полная доступность (A11y)
-- 🚀 Оптимизированная производительность
-- ✅ Покрытие тестами
+---
 
-## 🛠️ Установка и запуск
+### Project Structure
 
-```bash
-npm install
-npm run dev
+The project is structured by feature and type.
+
+```
+/src
+|
+|-- /components       # UI components, split into common, features, and layout
+|   |-- /common
+|   |-- /features
+|   `-- /layout
+|
+|-- /context          # React Context (e.g., ThemeContext)
+|-- /data             # Mock data (movies.json)
+|-- /hooks            # Custom hooks (e.g., useDebounce)
+|-- /pages            # Page components (HomePage, MovieDetailPage)
+|-- /types            # TypeScript type definitions
+`-- /utils            # Utility functions (e.g., constants, cn)
 ```
 
-## 🧪 Тестирование
+- **`components/features`** contains components with business logic (e.g., `MovieCard`, `SearchBar`).
+- **`components/common`** contains reusable, generic components (e.g., `Button`, `Skeleton`).
+- **`components/layout`** contains structural components (`Header`, `Footer`).
 
-```bash
-npm run test
-npm run test:coverage
-```
+---
 
-## 📊 Lighthouse Score
+### Setup & Running
 
-- Performance: 95+
-- Accessibility: 100
-- Best Practices: 100
-- SEO: 100
+1.  Clone the repository.
+2.  Install dependencies.
+    ```bash
+    npm install
+    ```
+3.  Run the development server.
+    ```bash
+    npm run dev
+    ```
+    The application will be running on `http://localhost:5173`.
 
-## 🎯 Реализованные требования ТЗ
+---
 
-- ✅ Адаптивная верстка
-- ✅ Семантический HTML
-- ✅ BEM методология (через Tailwind)
-- ✅ Загрузка данных с обработкой ошибок
-- ✅ Оптимизация (lazy loading, code splitting, memoization)
-- ✅ Анимации
+### Scripts
 
-## 📝 Ответы на теоретические вопросы
-
-См. файл `answers.txt` в корне проекта.
-
-## 📧 Контакты
-
-[Ваши контакты]
+-   `npm run dev`: Starts the development server.
+-   `npm run build`: Creates a production build in the `/dist` directory.
+-   `npm run test`: Runs all tests with Vitest.
+-   `npm run test:coverage`: Runs tests and generates a coverage report.
+-   `npm run preview`: Serves the production build locally for preview.
+-   `npm run lint`: Lints the codebase with ESLint.

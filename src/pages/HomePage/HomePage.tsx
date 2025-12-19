@@ -22,11 +22,9 @@ export const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_PAGE);
 
-  // Загрузка фильмов
   useEffect(() => {
     const loadMovies = async () => {
       try {
-        // Импортируем моковые данные
         const moviesData = await import('../../data/movies.json');
         setMovies(moviesData.movies);
         setFilteredMovies(moviesData.movies);
@@ -40,11 +38,9 @@ export const HomePage: React.FC = () => {
     loadMovies();
   }, []);
 
-  // Фильтрация
   useEffect(() => {
     let result = [...movies];
 
-    // Поиск
     if (searchQuery) {
       result = result.filter(m =>
         m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -52,7 +48,6 @@ export const HomePage: React.FC = () => {
       );
     }
 
-    // Категория
     switch (filterCategory) {
       case 'new':
         result = result.filter(m => m.year >= 2024);
@@ -74,7 +69,6 @@ export const HomePage: React.FC = () => {
     setItemsToShow(ITEMS_PER_PAGE);
   }, [movies, filterCategory, searchQuery]);
 
-  // Отображаемые фильмы
   useEffect(() => {
     setDisplayedMovies(filteredMovies.slice(0, itemsToShow));
   }, [filteredMovies, itemsToShow]);
@@ -96,7 +90,6 @@ export const HomePage: React.FC = () => {
     setFilterCategory(filter);
   };
 
-  // Скелетон для загрузки
   const renderSkeletons = () => {
     return Array.from({ length: 12 }).map((_, index) => (
       <div key={index} className="aspect-[2/3]">
@@ -130,7 +123,6 @@ export const HomePage: React.FC = () => {
 
       <main className="py-8">
         <Container>
-          {/* Поиск и фильтры */}
           <div className="space-y-6 mb-8">
             <SearchBar onSearch={handleSearch} />
             <FilterTabs
@@ -139,7 +131,6 @@ export const HomePage: React.FC = () => {
             />
           </div>
 
-          {/* Сетка фильмов */}
           {displayedMovies.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20">
               <Film className="h-20 w-20 text-text-secondary mb-4" />
@@ -168,14 +159,13 @@ export const HomePage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Кнопка "Показать больше" */}
               {itemsToShow < filteredMovies.length && (
                 <div className="mt-12 flex justify-center">
                   <button
                     onClick={handleLoadMore}
                     className="rounded-full bg-primary px-8 py-3 font-medium text-white transition-colors hover:bg-primary-hover"
                   >
-                    Показать больше
+                    Смотреть больше
                   </button>
                 </div>
               )}
@@ -184,7 +174,6 @@ export const HomePage: React.FC = () => {
         </Container>
       </main>
 
-      {/* Модалка */}
       <MovieModal
         movie={selectedMovie}
         isOpen={isModalOpen}

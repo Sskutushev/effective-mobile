@@ -16,5 +16,5 @@ export const FILTER_CATEGORIES = [
   { id: 'new', label: 'Новинки' },
   { id: 'premieres', label: 'Премьеры' },
   { id: 'popular', label: 'Популярные' },
-  { id: 'top50', label: 'Топ-50' },
+  { id: 'top50', label: 'Топ 50' },
 ] as const;
